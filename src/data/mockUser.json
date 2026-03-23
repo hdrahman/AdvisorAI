@@ -1,8 +1,8 @@
 {
   "profile": {
     "id": "u001",
-    "name": "Shlutz Hameed",
-    "email": "shameed@university.edu",
+    "name": "Sam Smith",
+    "email": "ssmith@university.edu",
     "major": "Computer Science",
     "minor": "Mathematics",
     "year": "Junior",
@@ -411,7 +411,7 @@
       {
         "id": "msg2",
         "sender": "ai",
-        "content": "Hello Shlutz! Based on your roadmap, you're currently planned for CS 450 (Computer Networks), CS 461 (Machine Learning), MATH 451 (Probability Theory), CS 485 (Cybersecurity), and ART 150 (Digital Design) for Fall 2025. This is a strong schedule with 15 credits total. Would you like to discuss any adjustments?",
+        "content": "Hello Sam! Based on your roadmap, you're currently planned for CS 450 (Computer Networks), CS 461 (Machine Learning), MATH 451 (Probability Theory), CS 485 (Cybersecurity), and ART 150 (Digital Design) for Fall 2025. This is a strong schedule with 15 credits total. Would you like to discuss any adjustments?",
         "timestamp": "2025-03-15T10:30:15Z"
       },
       {

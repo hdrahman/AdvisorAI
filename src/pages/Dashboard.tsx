@@ -58,11 +58,11 @@ export const Dashboard: React.FC = () => {
           </div>
 
           <div className="bg-dark-bg/50 rounded-xl p-6 mb-6">
-            <h3 className="text-lg font-semibold mb-3">Research Optimization</h3>
+            <h3 className="text-lg font-semibold mb-3">Course Recommendations</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              Based on your recent notes in Organic Chemistry, we recommend connecting
-              with Professor Aris for the upcoming 'Carbon-Capture' symposium. You have
-              an 88% topical overlap.
+              Based on your strong performance in Data Structures (A) and Algorithms (A-),
+              consider taking Advanced Algorithms next semester. Professor Martinez's section
+              has high student success rates and aligns well with your learning style.
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div>
