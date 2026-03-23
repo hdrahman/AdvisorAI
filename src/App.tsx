@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppLayout } from './components/layout';
 import { Dashboard, Chat, Roadmap, Courses, Profile } from './pages';

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from '../components/common';
 import mockCourses from '../data/mockCourses.json';
-import type { CourseCatalogItem } from '../types';
 
 export const Courses: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');

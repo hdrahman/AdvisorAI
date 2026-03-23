@@ -12,7 +12,7 @@ export const Profile: React.FC = () => {
 
   // Calculate grade distribution
   const gradeDistribution = completedCourses.reduce((acc, course) => {
-    if (course.grade) {
+    if ('grade' in course && course.grade && typeof course.grade === 'string') {
       const grade = course.grade.replace(/[+-]/g, ''); // Remove + or -
       acc[grade] = (acc[grade] || 0) + 1;
     }

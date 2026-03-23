@@ -47,7 +47,7 @@ export const Roadmap: React.FC = () => {
 
         {/* Semesters */}
         <div className="space-y-8">
-          {roadmap.semesters.map((semester, index) => {
+          {roadmap.semesters.map((semester) => {
             const isCurrentSemester = semester.courses.some(c => c.status === 'in-progress');
             const isCompletedSemester = semester.courses.every(c => c.status === 'completed');
             const isFutureSemester = semester.courses.every(c => c.status === 'planned');
@@ -101,8 +101,8 @@ export const Roadmap: React.FC = () => {
                             <h3 className="font-bold text-lg">{course.code}</h3>
                             <p className="text-sm text-gray-300">{course.name}</p>
                           </div>
-                          <Badge variant={getStatusBadgeVariant(course.status)}>
-                            {getStatusLabel(course.status)}
+                          <Badge variant={getStatusBadgeVariant(course.status as Course['status'])}>
+                            {getStatusLabel(course.status as Course['status'])}
                           </Badge>
                         </div>
                         <div className="flex items-center justify-between mt-3 text-sm">
@@ -119,7 +119,7 @@ export const Roadmap: React.FC = () => {
                             {course.type}
                           </span>
                         </div>
-                        {course.grade && (
+                        {'grade' in course && course.grade && (
                           <div className="mt-2 text-sm">
                             <span className="text-gray-400">Grade: </span>
                             <span className="font-medium text-green-400">{course.grade}</span>
