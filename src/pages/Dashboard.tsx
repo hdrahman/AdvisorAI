@@ -2,7 +2,7 @@ import React from 'react';
 import mockUserData from '../data/mockUser.json';
 
 export const Dashboard: React.FC = () => {
-  const { profile, roadmap } = mockUserData;
+  const { profile } = mockUserData;
 
   const progressPercentage = (profile.creditsCompleted / profile.creditsRequired) * 100;
   const circumference = 2 * Math.PI * 90;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card } from '../components/common';
 import mockCourses from '../data/mockCourses.json';
 
 export const Courses: React.FC = () => {
@@ -29,35 +28,35 @@ export const Courses: React.FC = () => {
   });
 
   return (
-    <div className="max-w-7xl">
+    <div className="max-w-7xl mx-auto">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Course Browser</h1>
-        <p className="text-gray-400">Explore available courses across all departments</p>
+      <div className="mb-10">
+        <h1 className="text-4xl font-serif mb-3">Course Catalog</h1>
+        <p className="text-slate-400">Browse and explore all available courses</p>
       </div>
 
       {/* Filters */}
-      <Card className="mb-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="card mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Search */}
           <div>
-            <label className="block text-sm font-medium mb-2">Search</label>
+            <label className="block text-sm font-medium mb-2 text-slate-300">Search</label>
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search courses..."
-              className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent-blue"
+              placeholder="Course name or code..."
+              className="w-full bg-dark-bg/50 border border-dark-border rounded-xl px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-accent-blue/50 transition-colors"
             />
           </div>
 
           {/* Department Filter */}
           <div>
-            <label className="block text-sm font-medium mb-2">Department</label>
+            <label className="block text-sm font-medium mb-2 text-slate-300">Department</label>
             <select
               value={selectedDepartment}
               onChange={(e) => setSelectedDepartment(e.target.value)}
-              className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent-blue"
+              className="w-full bg-dark-bg/50 border border-dark-border rounded-xl px-4 py-2.5 text-slate-100 focus:outline-none focus:border-accent-blue/50 transition-colors"
             >
               {departments.map((dept) => (
                 <option key={dept} value={dept}>
@@ -69,11 +68,11 @@ export const Courses: React.FC = () => {
 
           {/* Type Filter */}
           <div>
-            <label className="block text-sm font-medium mb-2">Type</label>
+            <label className="block text-sm font-medium mb-2 text-slate-300">Course Type</label>
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent-blue"
+              className="w-full bg-dark-bg/50 border border-dark-border rounded-xl px-4 py-2.5 text-slate-100 focus:outline-none focus:border-accent-blue/50 transition-colors"
             >
               {types.map((type) => (
                 <option key={type} value={type}>
@@ -83,57 +82,57 @@ export const Courses: React.FC = () => {
             </select>
           </div>
         </div>
-      </Card>
+      </div>
 
       {/* Results Count */}
-      <div className="mb-4">
-        <p className="text-gray-400">
-          Showing {filteredCourses.length} of {mockCourses.length} courses
+      <div className="mb-6">
+        <p className="text-slate-400 text-sm">
+          Showing <span className="text-accent-blue font-semibold">{filteredCourses.length}</span> of {mockCourses.length} courses
         </p>
       </div>
 
       {/* Course Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredCourses.map((course) => (
-          <Card key={course.code}>
-            <div className="mb-3">
-              <div className="flex items-start justify-between mb-2">
+          <div key={course.code} className="card hover:scale-105 transition-transform duration-300">
+            <div className="mb-4">
+              <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-lg">{course.code}</h3>
                 <span
-                  className={`px-2 py-1 rounded text-xs ${
+                  className={`px-2.5 py-1 rounded-lg text-xs font-medium ${
                     course.type === 'Major'
-                      ? 'bg-blue-900 text-blue-200'
+                      ? 'bg-accent-blue/20 text-accent-blue'
                       : course.type === 'Minor'
-                      ? 'bg-purple-900 text-purple-200'
+                      ? 'bg-accent-purple/20 text-accent-purple'
                       : course.type === 'Core'
-                      ? 'bg-orange-900 text-orange-200'
-                      : 'bg-gray-700 text-gray-300'
+                      ? 'bg-orange-500/20 text-orange-400'
+                      : 'bg-slate-700 text-slate-300'
                   }`}
                 >
                   {course.type}
                 </span>
               </div>
-              <h4 className="text-sm text-gray-300 mb-2">{course.name}</h4>
-              <p className="text-xs text-gray-400 mb-3">{course.description}</p>
+              <h4 className="text-sm text-slate-300 font-medium mb-2">{course.name}</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">{course.description}</p>
             </div>
 
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-gray-400">Credits:</span>
-                <span className="font-medium">{course.credits}</span>
+            <div className="space-y-2.5 text-sm pt-4 border-t border-dark-border/40">
+              <div className="flex justify-between items-center">
+                <span className="text-slate-500">Credits</span>
+                <span className="font-semibold text-accent-blue">{course.credits}</span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-gray-400">Department:</span>
-                <span className="font-medium">{course.department}</span>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-500">Department</span>
+                <span className="text-slate-300">{course.department}</span>
               </div>
               {course.prerequisites && course.prerequisites.length > 0 && (
                 <div>
-                  <span className="text-gray-400 block mb-1">Prerequisites:</span>
-                  <div className="flex flex-wrap gap-1">
+                  <span className="text-slate-500 block mb-2">Prerequisites</span>
+                  <div className="flex flex-wrap gap-1.5">
                     {course.prerequisites.map((prereq) => (
                       <span
                         key={prereq}
-                        className="px-2 py-1 bg-dark-bg border border-dark-border rounded text-xs"
+                        className="px-2 py-1 bg-dark-bg/60 border border-dark-border/40 rounded-lg text-xs text-slate-400"
                       >
                         {prereq}
                       </span>
@@ -142,12 +141,12 @@ export const Courses: React.FC = () => {
                 </div>
               )}
               <div>
-                <span className="text-gray-400 block mb-1">Available:</span>
-                <div className="flex flex-wrap gap-1">
+                <span className="text-slate-500 block mb-2">Offered</span>
+                <div className="flex flex-wrap gap-1.5">
                   {course.availableSemesters.map((semester) => (
                     <span
                       key={semester}
-                      className="px-2 py-1 bg-dark-bg border border-dark-border rounded text-xs"
+                      className="px-2 py-1 bg-accent-blue/10 border border-accent-blue/30 rounded-lg text-xs text-accent-blue"
                     >
                       {semester}
                     </span>
@@ -155,14 +154,16 @@ export const Courses: React.FC = () => {
                 </div>
               </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
 
       {filteredCourses.length === 0 && (
-        <Card className="text-center py-12">
-          <p className="text-gray-400">No courses found matching your filters.</p>
-        </Card>
+        <div className="card text-center py-16">
+          <div className="text-5xl mb-4">🔍</div>
+          <p className="text-slate-400 text-lg">No courses found matching your criteria</p>
+          <p className="text-slate-500 text-sm mt-2">Try adjusting your filters</p>
+        </div>
       )}
     </div>
   );

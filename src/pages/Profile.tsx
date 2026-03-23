@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from '../components/common';
 import mockUserData from '../data/mockUser.json';
 
 export const Profile: React.FC = () => {
@@ -20,94 +19,91 @@ export const Profile: React.FC = () => {
   }, {} as Record<string, number>);
 
   return (
-    <div className="max-w-5xl">
+    <div className="max-w-6xl mx-auto">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Student Profile</h1>
-        <p className="text-gray-400">Your academic information and progress</p>
+      <div className="mb-10">
+        <h1 className="text-4xl font-serif mb-3">Academic Profile</h1>
+        <p className="text-slate-400">Your complete academic information and performance metrics</p>
       </div>
 
       {/* Profile Overview */}
-      <Card className="mb-6">
-        <h2 className="text-2xl font-bold mb-6">Personal Information</h2>
+      <div className="card mb-6">
+        <h2 className="text-2xl font-serif mb-6">Personal Information</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Full Name</label>
-            <p className="text-lg font-medium">{profile.name}</p>
+            <label className="block text-sm text-slate-500 mb-2">Full Name</label>
+            <p className="text-lg font-semibold text-slate-100">{profile.name}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Email</label>
-            <p className="text-lg font-medium">{profile.email}</p>
+            <label className="block text-sm text-slate-500 mb-2">Email</label>
+            <p className="text-lg font-semibold text-slate-100">{profile.email}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Student ID</label>
-            <p className="text-lg font-medium">{profile.id}</p>
+            <label className="block text-sm text-slate-500 mb-2">Student ID</label>
+            <p className="text-lg font-semibold text-accent-blue">{profile.id}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Academic Advisor</label>
-            <p className="text-lg font-medium">{profile.advisor}</p>
+            <label className="block text-sm text-slate-500 mb-2">Academic Advisor</label>
+            <p className="text-lg font-semibold text-slate-100">{profile.advisor}</p>
           </div>
         </div>
-      </Card>
+      </div>
 
-      {/* Academic Details */}
-      <Card className="mb-6">
-        <h2 className="text-2xl font-bold mb-6">Academic Details</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-sm text-gray-400 mb-1">Major</label>
-            <p className="text-lg font-medium">{profile.major}</p>
-          </div>
-          <div>
-            <label className="block text-sm text-gray-400 mb-1">Minor</label>
-            <p className="text-lg font-medium">{profile.minor || 'None'}</p>
-          </div>
-          <div>
-            <label className="block text-sm text-gray-400 mb-1">Class Year</label>
-            <p className="text-lg font-medium">{profile.year}</p>
-          </div>
-          <div>
-            <label className="block text-sm text-gray-400 mb-1">Expected Graduation</label>
-            <p className="text-lg font-medium">{profile.expectedGraduation}</p>
-          </div>
-          <div>
-            <label className="block text-sm text-gray-400 mb-1">Cumulative GPA</label>
-            <p className="text-lg font-medium text-accent-blue">{profile.gpa.toFixed(2)}</p>
-          </div>
-          <div>
-            <label className="block text-sm text-gray-400 mb-1">Credits Completed</label>
-            <p className="text-lg font-medium">
-              {profile.creditsCompleted} / {profile.creditsRequired}
-            </p>
-          </div>
-        </div>
-      </Card>
-
-      {/* Academic Progress */}
-      <Card className="mb-6">
-        <h2 className="text-2xl font-bold mb-6">Academic Progress</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-4 bg-dark-bg rounded-lg">
-            <div className="text-3xl font-bold text-green-400 mb-2">{completedCourses.length}</div>
-            <div className="text-sm text-gray-400">Courses Completed</div>
-          </div>
-          <div className="text-center p-4 bg-dark-bg rounded-lg">
-            <div className="text-3xl font-bold text-blue-400 mb-2">{inProgressCourses.length}</div>
-            <div className="text-sm text-gray-400">Current Courses</div>
-          </div>
-          <div className="text-center p-4 bg-dark-bg rounded-lg">
-            <div className="text-3xl font-bold text-purple-400 mb-2">
-              {roadmap.semesters.length}
+      {/* Academic Details & Progress */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div className="card">
+          <h2 className="text-2xl font-serif mb-6">Academic Details</h2>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center pb-4 border-b border-dark-border/40">
+              <span className="text-slate-500">Major</span>
+              <span className="font-semibold text-accent-blue">{profile.major}</span>
             </div>
-            <div className="text-sm text-gray-400">Total Semesters</div>
+            <div className="flex justify-between items-center pb-4 border-b border-dark-border/40">
+              <span className="text-slate-500">Minor</span>
+              <span className="font-semibold text-accent-purple">{profile.minor || 'None'}</span>
+            </div>
+            <div className="flex justify-between items-center pb-4 border-b border-dark-border/40">
+              <span className="text-slate-500">Class Year</span>
+              <span className="font-semibold">{profile.year}</span>
+            </div>
+            <div className="flex justify-between items-center pb-4 border-b border-dark-border/40">
+              <span className="text-slate-500">Expected Graduation</span>
+              <span className="font-semibold">{profile.expectedGraduation}</span>
+            </div>
+            <div className="flex justify-between items-center pb-4 border-b border-dark-border/40">
+              <span className="text-slate-500">Cumulative GPA</span>
+              <span className="font-bold text-2xl glow-text">{profile.gpa.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-slate-500">Credits</span>
+              <span className="font-semibold">{profile.creditsCompleted} / {profile.creditsRequired}</span>
+            </div>
           </div>
         </div>
-      </Card>
+
+        <div className="card">
+          <h2 className="text-2xl font-serif mb-6">Academic Progress</h2>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="stat-card text-center">
+              <div className="text-3xl font-bold text-accent-blue mb-2">{completedCourses.length}</div>
+              <div className="text-xs text-slate-500 uppercase tracking-wide">Completed</div>
+            </div>
+            <div className="stat-card text-center">
+              <div className="text-3xl font-bold text-accent-purple mb-2">{inProgressCourses.length}</div>
+              <div className="text-xs text-slate-500 uppercase tracking-wide">In Progress</div>
+            </div>
+            <div className="stat-card text-center col-span-2">
+              <div className="text-3xl font-bold text-slate-300 mb-2">{roadmap.semesters.length}</div>
+              <div className="text-xs text-slate-500 uppercase tracking-wide">Total Semesters</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Grade Distribution */}
-      <Card>
-        <h2 className="text-2xl font-bold mb-6">Grade Distribution</h2>
-        <div className="space-y-3">
+      <div className="card">
+        <h2 className="text-2xl font-serif mb-6">Grade Distribution</h2>
+        <div className="space-y-4">
           {Object.entries(gradeDistribution)
             .sort(([a], [b]) => a.localeCompare(b))
             .map(([grade, count]) => {
@@ -115,19 +111,19 @@ export const Profile: React.FC = () => {
               return (
                 <div key={grade}>
                   <div className="flex justify-between mb-2">
-                    <span className="font-medium">Grade {grade}</span>
-                    <span className="text-gray-400">
-                      {count} {count === 1 ? 'course' : 'courses'} ({percentage.toFixed(1)}%)
+                    <span className="font-semibold">Grade {grade}</span>
+                    <span className="text-slate-400 text-sm">
+                      {count} {count === 1 ? 'course' : 'courses'} • {percentage.toFixed(1)}%
                     </span>
                   </div>
-                  <div className="w-full bg-dark-bg rounded-full h-2">
+                  <div className="w-full bg-dark-bg/60 rounded-full h-2.5">
                     <div
-                      className={`h-2 rounded-full ${
+                      className={`h-2.5 rounded-full transition-all ${
                         grade === 'A'
-                          ? 'bg-green-500'
+                          ? 'bg-gradient-to-r from-accent-blue to-accent-purple'
                           : grade === 'B'
-                          ? 'bg-blue-500'
-                          : 'bg-yellow-500'
+                          ? 'bg-accent-blue/60'
+                          : 'bg-slate-500'
                       }`}
                       style={{ width: `${percentage}%` }}
                     ></div>
@@ -136,7 +132,7 @@ export const Profile: React.FC = () => {
               );
             })}
         </div>
-      </Card>
+      </div>
     </div>
   );
 };
