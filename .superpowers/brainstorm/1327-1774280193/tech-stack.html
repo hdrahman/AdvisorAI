@@ -1,0 +1,94 @@
+<h2>Technology Stack Options</h2>
+<p class="subtitle">Three approaches for building AdvisorAI with different trade-offs</p>
+
+<div class="options">
+  <div class="option" data-choice="vite-react-tailwind" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Vite + React + Tailwind CSS (Recommended)</h3>
+      <p><strong>Stack:</strong> Vite, React 18, React Router, Tailwind CSS, TypeScript</p>
+      <div class="pros-cons" style="margin-top: 12px;">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Lightning-fast dev server and HMR</li>
+            <li>Modern, clean component architecture</li>
+            <li>Tailwind matches your Figma design system perfectly</li>
+            <li>Small bundle size, production-ready</li>
+            <li>Easy to add real backend later</li>
+            <li>TypeScript for type safety with mock data</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Requires learning React hooks if unfamiliar</li>
+            <li>More initial setup than plain HTML</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="nextjs" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Next.js 14 + App Router</h3>
+      <p><strong>Stack:</strong> Next.js 14, React Server Components, Tailwind CSS, TypeScript</p>
+      <div class="pros-cons" style="margin-top: 12px;">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>File-based routing built-in</li>
+            <li>Server components for future backend integration</li>
+            <li>Great for SEO if needed later</li>
+            <li>Can add API routes easily</li>
+            <li>Modern React features</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Heavier framework for an MVP</li>
+            <li>Overkill for static mock data</li>
+            <li>Steeper learning curve</li>
+            <li>Slower dev experience than Vite</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="vanilla" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Vanilla HTML/CSS/JS + Build Tool</h3>
+      <p><strong>Stack:</strong> HTML, CSS (or Tailwind CDN), Vanilla JavaScript/TypeScript, Vite for bundling</p>
+      <div class="pros-cons" style="margin-top: 12px;">
+        <div class="pros">
+          <h4>Pros</h4>
+          <ul>
+            <li>Simplest approach, no framework</li>
+            <li>Fast to prototype</li>
+            <li>Minimal dependencies</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Cons</h4>
+          <ul>
+            <li>Repetitive code for 5 screens</li>
+            <li>Hard to maintain consistency</li>
+            <li>Manual DOM manipulation gets messy</li>
+            <li>Difficult to scale or refactor later</li>
+            <li>State management becomes painful</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <h3>My Recommendation: Option A (Vite + React + Tailwind)</h3>
+  <p>Given your Figma design's modern dark theme and the need for 5 interactive screens with shared navigation, <strong>Vite + React + Tailwind</strong> is the sweet spot. It's fast to develop, matches your design system, keeps components reusable, and won't feel like overkill. The component architecture will make it easy to maintain consistency across all screens, and when you're ready to add a real backend, it's straightforward to integrate APIs.</p>
+</div>

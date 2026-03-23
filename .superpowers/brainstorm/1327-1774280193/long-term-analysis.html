@@ -1,0 +1,85 @@
+<h2>Long-Term Perspective: Vite+React vs Next.js</h2>
+<p class="subtitle">Since this will evolve into a full app, let's think about what each offers down the line</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">Option A: Vite + React</div>
+    <div class="mockup-body">
+      <h3>Growth Path</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Backend:</strong> Add any backend (Node/Express, Python/Flask, Go, etc.) - completely separate</li>
+        <li><strong>API Integration:</strong> Simple fetch calls to your API endpoints</li>
+        <li><strong>Deployment:</strong> Static build → CDN (Vercel, Netlify, Cloudflare) + separate API server</li>
+        <li><strong>Database:</strong> Backend handles it - frontend just consumes API</li>
+        <li><strong>Auth:</strong> JWT or session tokens from backend</li>
+        <li><strong>Real-time:</strong> WebSocket connections to your backend</li>
+      </ul>
+
+      <h3 style="margin-top: 20px;">Best For</h3>
+      <ul style="line-height: 1.8;">
+        <li>Microservices architecture</li>
+        <li>Backend flexibility (any language/framework)</li>
+        <li>Multiple frontend apps sharing one backend</li>
+        <li>Team with separate frontend/backend developers</li>
+        <li>Maximum performance (static SPA)</li>
+      </ul>
+
+      <h3 style="margin-top: 20px;">Future Complexity</h3>
+      <p style="color: #60a5fa;">⭐ Simple - Frontend and backend stay cleanly separated. Easy to reason about.</p>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">Option B: Next.js</div>
+    <div class="mockup-body">
+      <h3>Growth Path</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Backend:</strong> Built-in API routes + Server Components</li>
+        <li><strong>API Integration:</strong> Can be same codebase or external</li>
+        <li><strong>Deployment:</strong> Vercel (seamless) or self-host Node server</li>
+        <li><strong>Database:</strong> Direct DB calls from API routes/Server Components</li>
+        <li><strong>Auth:</strong> NextAuth.js or similar integrated solutions</li>
+        <li><strong>Real-time:</strong> API routes + WebSockets or use Server Actions</li>
+      </ul>
+
+      <h3 style="margin-top: 20px;">Best For</h3>
+      <ul style="line-height: 1.8;">
+        <li>Full-stack JavaScript/TypeScript shop</li>
+        <li>Single-person or small team (less coordination)</li>
+        <li>SEO-critical pages (though AdvisorAI is behind login)</li>
+        <li>Rapid prototyping with built-in backend</li>
+        <li>Vercel deployment (easiest option)</li>
+      </ul>
+
+      <h3 style="margin-top: 20px;">Future Complexity</h3>
+      <p style="color: #fbbf24;">⚠️ Moderate - Mixing client/server components can get tricky. More "magic" to understand.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px;">
+  <h3>My Recommendation for Long-Term: Still Vite + React</h3>
+  <p><strong>Why?</strong> AdvisorAI will likely need a real backend with a database, AI integration (OpenAI API, custom models), authentication, and possibly real-time features. With Vite + React, you keep your frontend simple and clean, and you can choose the <em>best</em> backend for your needs (Python for AI/ML, Node for speed, whatever fits).</p>
+
+  <p style="margin-top: 12px;">Next.js locks you into the Node.js ecosystem and Vercel's model. If you want to use Python for AI processing, run Postgres, or scale with Kubernetes later, you'll end up with Next.js + a separate backend anyway - making Next.js overhead without the benefit.</p>
+
+  <p style="margin-top: 12px;"><strong>Exception:</strong> If you're 100% committed to full-stack TypeScript, staying on Vercel forever, and want the fastest MVP-to-production path with minimal DevOps, Next.js is solid. But for flexibility and long-term growth, Vite + React + backend-of-choice wins.</p>
+</div>
+
+<div class="options" style="margin-top: 32px;">
+  <div class="option" data-choice="vite" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Go with Vite + React</h3>
+      <p>Maximum flexibility, clean separation, backend agnostic</p>
+    </div>
+  </div>
+
+  <div class="option" data-choice="nextjs" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Go with Next.js</h3>
+      <p>All-in-one solution, faster to production, full-stack TypeScript</p>
+    </div>
+  </div>
+</div>

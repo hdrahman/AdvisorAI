@@ -10,10 +10,12 @@ AdvisorAI is an academic advising web application that helps students track thei
 
 ## Goals
 
-- Implement all 5 screens from Figma design with full navigation
+- Implement all 5 screens with full navigation
 - Create realistic mock data for a single student
 - Demonstrate the UI/UX flow for academic advising
 - Build a foundation that can scale to full backend integration
+
+**Figma Design:** https://www.figma.com/design/lSOyY3rn5Tl3bLzwAJG2z1/Untitled?node-id=0-1
 
 ## Non-Goals (MVP)
 
@@ -80,8 +82,14 @@ AdvisorAI/
 
 ### Data Model
 
-**User Profile** (`mockUser.json`):
+**Complete User Data Structure** (`mockUser.json`):
 ```typescript
+interface UserData {
+  profile: User;
+  roadmap: Roadmap;
+  chatHistory: ChatHistory;
+}
+
 interface User {
   id: string;
   name: string;
@@ -97,27 +105,21 @@ interface User {
 }
 ```
 
-**Course History:**
+**Course and Roadmap:**
 ```typescript
-interface CourseHistory {
-  completed: Course[];     // Past courses with grades
-  inProgress: Course[];    // Current semester
-  planned: Course[];       // Future semesters
-}
-
 interface Course {
   code: string;            // e.g., "CS 101"
   name: string;
   credits: number;
   semester: string;        // e.g., "Fall 2024"
-  grade?: string;          // Only for completed
+  grade?: string;          // Only for completed courses
+  status: "completed" | "in-progress" | "planned";
   type: "Core" | "Major" | "Minor" | "Elective";
   description: string;
+  prerequisites?: string[]; // e.g., ["CS 100", "MATH 101"]
+  department?: string;      // e.g., "Computer Science"
 }
-```
 
-**Academic Roadmap:**
-```typescript
 interface Roadmap {
   semesters: Semester[];
 }
@@ -125,27 +127,48 @@ interface Roadmap {
 interface Semester {
   term: string;            // "Fall 2024"
   year: number;
-  courses: Course[];
+  season: "Fall" | "Spring" | "Summer";
+  courses: Course[];       // Courses in this semester
   totalCredits: number;
 }
 ```
 
+**Note on Data Organization:** The `Roadmap` is the single source of truth for all courses. To get courses by status:
+- **Completed:** Filter `roadmap.semesters[].courses` where `status === "completed"`
+- **In-Progress:** Filter where `status === "in-progress"`
+- **Planned:** Filter where `status === "planned"`
+
+This avoids duplication and keeps data consistent.
+
 **Chat Conversation:**
 ```typescript
+interface ChatHistory {
+  messages: ChatMessage[];  // Hardcoded 5-7 messages in mockUser.json
+}
+
 interface ChatMessage {
   id: string;
   sender: "user" | "ai";
   content: string;
   timestamp: string;
 }
-
-interface ChatHistory {
-  messages: ChatMessage[];  // Hardcoded conversation
-}
 ```
 
-**Course Catalog:**
-Separate `mockCourses.json` with all available courses for browsing.
+**Course Catalog** (`mockCourses.json`):
+Array of all available courses for the course browser. Uses same `Course` interface but without `semester`, `grade`, or `status` fields (those are student-specific).
+
+```typescript
+interface CourseCatalogItem {
+  code: string;
+  name: string;
+  credits: number;
+  type: "Core" | "Major" | "Minor" | "Elective";
+  description: string;
+  prerequisites?: string[];
+  department: string;
+  availableSemesters: ("Fall" | "Spring" | "Summer")[]; // When course is offered
+}
+```
 
 ## Screen Specifications
 
