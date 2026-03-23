@@ -65,7 +65,7 @@ export const Chat: React.FC = () => {
 
             {/* Sample Conversation */}
             <div className="space-y-4 mb-8">
-              {chatHistory.messages.slice(0, 2).map((message, idx) => (
+              {chatHistory.messages.slice(0, 2).map((message) => (
                 <div
                   key={message.id}
                   className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}

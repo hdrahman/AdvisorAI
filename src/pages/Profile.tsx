@@ -196,11 +196,11 @@ export const Profile: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-xs text-slate-500">{course.credits} credits</span>
-                    {'grade' in course && course.grade && (
+                    {('grade' in course && course.grade && typeof course.grade === 'string') ? (
                       <span className="px-2.5 py-1 bg-accent-blue/20 text-accent-blue text-sm font-semibold rounded">
-                        {course.grade}
+                        {course.grade as string}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                 </div>
               ))}

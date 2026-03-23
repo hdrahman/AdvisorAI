@@ -14,7 +14,7 @@ export const Roadmap: React.FC = () => {
 
       {/* Semester Grid */}
       <div className="grid grid-cols-2 gap-6">
-        {roadmap.semesters.map((semester, idx) => {
+        {roadmap.semesters.map((semester) => {
           const isCurrentSemester = semester.courses.some(c => c.status === 'in-progress');
           const isCompletedSemester = semester.courses.every(c => c.status === 'completed');
 
