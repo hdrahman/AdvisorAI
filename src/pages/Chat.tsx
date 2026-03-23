@@ -92,15 +92,21 @@ export const Chat: React.FC = () => {
               {/* Action Buttons */}
               <div className="flex justify-center gap-3 mt-6">
                 <button className="px-5 py-2.5 bg-dark-panel hover:bg-dark-panel-hover border border-dark-border rounded-xl text-sm text-slate-300 transition-all flex items-center gap-2">
-                  <span>📋</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                  </svg>
                   <span>Check Prereqs</span>
                 </button>
                 <button className="px-5 py-2.5 bg-dark-panel hover:bg-dark-panel-hover border border-dark-border rounded-xl text-sm text-slate-300 transition-all flex items-center gap-2">
-                  <span>🗺️</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                  </svg>
                   <span>Build Roadmap</span>
                 </button>
                 <button className="px-5 py-2.5 bg-dark-panel hover:bg-dark-panel-hover border border-dark-border rounded-xl text-sm text-slate-300 transition-all flex items-center gap-2">
-                  <span>✏️</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
                   <span>Explain Gen-Ed</span>
                 </button>
               </div>
@@ -128,7 +134,9 @@ export const Chat: React.FC = () => {
         <div className="border-t border-dark-border/30 p-6 bg-dark-panel/20 backdrop-blur-xl">
           <div className="max-w-3xl mx-auto flex items-center gap-3">
             <button className="w-10 h-10 rounded-xl bg-dark-panel hover:bg-dark-panel-hover border border-dark-border flex items-center justify-center text-slate-400 transition-all">
-              <span className="text-lg">📎</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+              </svg>
             </button>
             <input
               type="text"
@@ -138,10 +146,14 @@ export const Chat: React.FC = () => {
               className="flex-1 bg-dark-bg/50 border border-dark-border rounded-xl px-5 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-accent-blue/50 transition-colors"
             />
             <button className="w-10 h-10 rounded-xl bg-dark-panel hover:bg-dark-panel-hover border border-dark-border flex items-center justify-center text-slate-400 transition-all">
-              <span className="text-lg">🎤</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+              </svg>
             </button>
             <button className="w-10 h-10 rounded-xl bg-accent-blue hover:bg-accent-blue-glow text-dark-bg flex items-center justify-center transition-all shadow-glow">
-              <span className="text-lg">→</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </button>
           </div>
         </div>
@@ -175,7 +187,9 @@ export const Chat: React.FC = () => {
           <div className="bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 rounded-xl p-4 border border-accent-purple/30">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 rounded-lg bg-accent-purple/40 flex items-center justify-center">
-                <span className="text-sm">🎯</span>
+                <svg className="w-4 h-4 text-accent-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
               <span className="text-sm font-medium">Senior Research Proposal</span>
             </div>
