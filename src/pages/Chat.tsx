@@ -38,14 +38,7 @@ export const Chat: React.FC = () => {
         <div className="mt-auto">
           <button className="w-full bg-accent-blue/20 hover:bg-accent-blue/30 border border-accent-blue/40 text-accent-blue rounded-xl py-3 px-4 text-sm font-medium transition-all flex items-center justify-center gap-2">
             <span>+</span>
-            <span>New Project</span>
-          </button>
-        </div>
-
-        <div className="mt-4">
-          <button className="w-full bg-dark-panel-hover hover:bg-dark-border border border-dark-border text-slate-400 rounded-xl py-3 px-4 text-sm font-medium transition-all flex items-center justify-center gap-2">
-            <span>?</span>
-            <span>Support</span>
+            <span>New Chat</span>
           </button>
         </div>
       </div>
